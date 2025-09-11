@@ -1,5 +1,7 @@
 # PitchDeck
 
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/f53a9eee-6df9-456b-a0e9-b8e576869d94" />
+
 PitchDeck is a dynamic platform for founders and innovators to share their startup pitches and connect with a community of investors and enthusiasts. It provides a clean, intuitive interface for creating, viewing, and discovering new ideas.
 
 ## Features
