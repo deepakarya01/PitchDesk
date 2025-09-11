@@ -1,8 +1,11 @@
 #PitchDeck 🚀
+
 PitchDeck is a dynamic platform for founders and innovators to share their startup pitches and connect with a community of investors and enthusiasts. It provides a clean, intuitive interface for creating, viewing, and discovering new ideas.
 
 ##✨ Features
+
 ###Pitch Management
+
 **Pitch Creation**: A dedicated page for logged-in users to create and submit their startup pitches, complete with a title, description, category, and a detailed pitch.
 
 **User Profiles**: Each user has a dedicated profile page showcasing all the pitches they have created.
@@ -10,6 +13,7 @@ PitchDeck is a dynamic platform for founders and innovators to share their start
 **Search Functionality**: Users can search for pitches by title, category, or description to find relevant content.
 
 ###Core Technology
+
 **Authentication**: Secure user authentication is powered by Auth.js, allowing users to sign in with their GitHub account.
 
 **Cloud Image Storage**: Images are securely uploaded to Cloudinary, ensuring optimal performance and reliable storage without burdening the database.
@@ -21,16 +25,20 @@ PitchDeck is a dynamic platform for founders and innovators to share their start
 **Server Actions**: Core logic, including pitch creation and user data fetching, is handled securely on the server with Next.js Server Actions.
 
 ###User Interface
+
 **Responsive Design**: A fully responsive UI built with Tailwind CSS, providing a seamless experience on both desktop and mobile devices.
 
 **UI Components**: The user interface is built with Shadcn/UI, offering a set of accessible and reusable components.
 
 ##🛠️ Tech Stack
+
 ###Framework & Language
+
 **Framework**: Next.js
 **Language**: TypeScript
 
 ###Backend
+
 **Database**: PostgreSQL
 
 **ORM**: Prisma
@@ -38,6 +46,7 @@ PitchDeck is a dynamic platform for founders and innovators to share their start
 **Authentication**: Auth.js
 
 ###Frontend
+
 **Styling**: Tailwind CSS
 
 **UI Components**: Shadcn/UI
@@ -45,6 +54,7 @@ PitchDeck is a dynamic platform for founders and innovators to share their start
 **Image Upload**: Cloudinary
 
 ##🚀 Getting Started
+
 ###Prerequisites
 
 Node.js (v18 or higher)
@@ -52,6 +62,7 @@ npm
 A PostgreSQL database
 
 ##Installation
+
 ###Clone the repository:
 
 Bash
@@ -87,7 +98,9 @@ npm run dev
 Open http://localhost:3000 in your browser to see the result.
 
 ##🤝 Contributing
+
 Contributions, issues, and feature requests are welcome! Feel free to check the issues page for opportunities to contribute.
 
 ##📄 License
+
 This project is licensed under the MIT License.
