@@ -1,56 +1,62 @@
-PitchDeck 🚀
-PitchDeck is a dynamic platform designed for founders and innovators to share their startup pitches and connect with a community of investors and enthusiasts. It provides a clean, intuitive interface for creating, viewing, and discovering new ideas.
+#PitchDeck 🚀
+PitchDeck is a dynamic platform for founders and innovators to share their startup pitches and connect with a community of investors and enthusiasts. It provides a clean, intuitive interface for creating, viewing, and discovering new ideas.
 
-✨ Features
-Authentication: Secure user authentication powered by Auth.js, allowing users to sign in with their GitHub account.
+##✨ Features
+###Pitch Management
+**Pitch Creation**: A dedicated page for logged-in users to create and submit their startup pitches, complete with a title, description, category, and a detailed pitch.
 
-Pitch Creation: A dedicated page for logged-in users to create and submit their startup pitches, complete with a title, description, category, and pitch about their ideas.
+**User Profiles**: Each user has a dedicated profile page showcasing all the pitches they have created.
 
-Cloud Image Storage: Images are securely uploaded to Cloudinary, ensuring optimal performance and reliable storage without burdening the database.
+**Search Functionality**: Users can search for pitches by title, category, or description to find relevant content.
 
-User Profiles: Each user has a dedicated profile page showcasing all the pitches they have created.
+###Core Technology
+**Authentication**: Secure user authentication is powered by Auth.js, allowing users to sign in with their GitHub account.
 
-Dynamic Routing: URLs are dynamically generated for each user and pitch, enabling easy sharing and direct access.
+**Cloud Image Storage**: Images are securely uploaded to Cloudinary, ensuring optimal performance and reliable storage without burdening the database.
 
-Search Functionality: Users can search for pitches by title, category, or description to find relevant content.
+**Dynamic Routing**: URLs are dynamically generated for each user and pitch, enabling easy sharing and direct access.
 
-Responsive Design: A fully responsive user interface built with Tailwind CSS, providing a seamless experience on both desktop and mobile devices.
+**Prisma ORM**: The application uses Prisma to interact with a PostgreSQL database, ensuring a type-safe and efficient data layer.
 
-Prisma ORM: The application uses Prisma to interact with a PostgreSQL database, ensuring a type-safe and efficient data layer.
+**Server Actions**: Core logic, including pitch creation and user data fetching, is handled securely on the server with Next.js Server Actions.
 
-Server Actions: Core logic, including pitch creation and user data fetching, is handled securely on the server with Next.js Server Actions.
+###User Interface
+**Responsive Design**: A fully responsive UI built with Tailwind CSS, providing a seamless experience on both desktop and mobile devices.
 
-🛠️ Tech Stack
-Framework: Next.js
+**UI Components**: The user interface is built with Shadcn/UI, offering a set of accessible and reusable components.
 
-Language: TypeScript
+##🛠️ Tech Stack
+###Framework & Language
+**Framework**: Next.js
+**Language**: TypeScript
 
-Styling: Tailwind CSS
+###Backend
+**Database**: PostgreSQL
 
-Database: PostgreSQL
+**ORM**: Prisma
 
-ORM: Prisma
+**Authentication**: Auth.js
 
-Authentication: Auth.js
+###Frontend
+**Styling**: Tailwind CSS
 
-Image Upload: Cloudinary
+**UI Components**: Shadcn/UI
 
-UI Components: Shadcn/UI
+**Image Upload**: Cloudinary
 
-🚀 Getting Started
-Prerequisites
+##🚀 Getting Started
+###Prerequisites
+
 Node.js (v18 or higher)
-
 npm
-
 A PostgreSQL database
 
-Installation
-Clone the repository:
+##Installation
+###Clone the repository:
 
 Bash
 
-git clone [your-repo-url]
+git clone [repo-url]
 cd my-app
 Install dependencies:
 
@@ -67,7 +73,6 @@ AUTH_GITHUB_SECRET="your_github_client_secret"
 CLOUDINARY_CLOUD_NAME="your_cloudinary_cloud_name"
 CLOUDINARY_API_KEY="your_cloudinary_api_key"
 CLOUDINARY_API_SECRET="your_cloudinary_api_secret"
-
 Set up the database:
 Push the Prisma schema to your database to create the necessary tables.
 
@@ -81,8 +86,8 @@ Bash
 npm run dev
 Open http://localhost:3000 in your browser to see the result.
 
-🤝 Contributing
+##🤝 Contributing
 Contributions, issues, and feature requests are welcome! Feel free to check the issues page for opportunities to contribute.
 
-📄 License
+##📄 License
 This project is licensed under the MIT License.
