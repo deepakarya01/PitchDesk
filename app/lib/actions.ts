@@ -11,11 +11,10 @@ cloudinary.config({
 });
 
 export async function uploadImage(formData: FormData) {
-  // Check if the 'image' field exists and is a valid File object
   const file = formData.get('image');
 
   if (!file || typeof file === 'string') {
-    return null; // Return null if no file is uploaded or if it's not a file
+    return null;
   }
 
   const arrayBuffer = await (file as File).arrayBuffer();
@@ -128,7 +127,6 @@ export async function createPitch(
       ? (imageUploadResult as any).secure_url
       : null;
 
-    // Corrected data object: remove the `author` field
     await prisma.startup.create({
       data: {
         title,
