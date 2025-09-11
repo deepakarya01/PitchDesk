@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+PitchDeck 🚀
+PitchDeck is a dynamic platform designed for founders and innovators to share their startup pitches and connect with a community of investors and enthusiasts. It provides a clean, intuitive interface for creating, viewing, and discovering new ideas.
 
-## Getting Started
+✨ Features
+Authentication: Secure user authentication powered by Auth.js, allowing users to sign in with their GitHub account.
 
-First, run the development server:
+Pitch Creation: A dedicated page for logged-in users to create and submit their startup pitches, complete with a title, description, category, and an AI-powered pitch generation tool.
 
-```bash
+Cloud Image Storage: Images are securely uploaded to Cloudinary, ensuring optimal performance and reliable storage without burdening the database.
+
+User Profiles: Each user has a dedicated profile page showcasing all the pitches they have created.
+
+Dynamic Routing: URLs are dynamically generated for each user and pitch, enabling easy sharing and direct access.
+
+Search Functionality: Users can search for pitches by title, category, or description to find relevant content.
+
+Responsive Design: A fully responsive user interface built with Tailwind CSS, providing a seamless experience on both desktop and mobile devices.
+
+Prisma ORM: The application uses Prisma to interact with a PostgreSQL database, ensuring a type-safe and efficient data layer.
+
+Server Actions: Core logic, including pitch creation and user data fetching, is handled securely on the server with Next.js Server Actions.
+
+🛠️ Tech Stack
+Framework: Next.js
+
+Language: TypeScript
+
+Styling: Tailwind CSS
+
+Database: PostgreSQL
+
+ORM: Prisma
+
+Authentication: Auth.js
+
+Image Upload: Cloudinary
+
+UI Components: Shadcn/UI
+
+🚀 Getting Started
+Prerequisites
+Node.js (v18 or higher)
+
+npm
+
+A PostgreSQL database
+
+Installation
+Clone the repository:
+
+Bash
+
+git clone [your-repo-url]
+cd my-app
+Install dependencies:
+
+Bash
+
+npm install
+Set up environment variables:
+Create a .env.local file in the root of your project and add the following variables:
+
+DATABASE_URL="your_postgresql_database_url"
+AUTH_SECRET="a_strong_random_string_for_nextauth"
+AUTH_GITHUB_ID="your_github_client_id"
+AUTH_GITHUB_SECRET="your_github_client_secret"
+CLOUDINARY_CLOUD_NAME="your_cloudinary_cloud_name"
+CLOUDINARY_API_KEY="your_cloudinary_api_key"
+CLOUDINARY_API_SECRET="your_cloudinary_api_secret"
+
+Set up the database:
+Push the Prisma schema to your database to create the necessary tables.
+
+Bash
+
+npx prisma db push
+Run the development server:
+
+Bash
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 in your browser to see the result.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🤝 Contributing
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page for opportunities to contribute.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📄 License
+This project is licensed under the MIT License.
