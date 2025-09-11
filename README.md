@@ -1,43 +1,28 @@
-#PitchDeck 🚀
+# PitchDeck
 
 PitchDeck is a dynamic platform for founders and innovators to share their startup pitches and connect with a community of investors and enthusiasts. It provides a clean, intuitive interface for creating, viewing, and discovering new ideas.
 
-##✨ Features
+## Features
 
-###Pitch Management
+* **Pitch Creation**: A dedicated page for logged-in users to create and submit their startup pitches, complete with a title, description, category, and a detailed pitch.
+* **User Profiles**: Each user has a dedicated profile page showcasing all the pitches they have created.
+* **Search Functionality**: Users can search for pitches by title, category, or description to find relevant content.
+* **Authentication:** Secure user authentication is powered by Auth.js, allowing users to sign in with their GitHub account.
+* **Cloud Image Storage:** Images are securely uploaded to Cloudinary, ensuring optimal performance and reliable storage without burdening the database.
+* **Dynamic Routing:** URLs are dynamically generated for each user and pitch, enabling easy sharing and direct access.
+* **Prisma ORM:** The application uses Prisma to interact with a PostgreSQL database, ensuring a type-safe and efficient data layer.
+* **Server Actions:** Core logic, including pitch creation and user data fetching, is handled securely on the server with Next.js Server Actions.
+* **Responsive Design:** A fully responsive UI built with Tailwind CSS, providing a seamless experience on both desktop and mobile devices.
+* **UI Components:** The user interface is built with Shadcn/UI, offering a set of accessible and reusable components.
 
-**Pitch Creation**: A dedicated page for logged-in users to create and submit their startup pitches, complete with a title, description, category, and a detailed pitch.
+## Tech Stack
 
-**User Profiles**: Each user has a dedicated profile page showcasing all the pitches they have created.
-
-**Search Functionality**: Users can search for pitches by title, category, or description to find relevant content.
-
-###Core Technology
-
-**Authentication**: Secure user authentication is powered by Auth.js, allowing users to sign in with their GitHub account.
-
-**Cloud Image Storage**: Images are securely uploaded to Cloudinary, ensuring optimal performance and reliable storage without burdening the database.
-
-**Dynamic Routing**: URLs are dynamically generated for each user and pitch, enabling easy sharing and direct access.
-
-**Prisma ORM**: The application uses Prisma to interact with a PostgreSQL database, ensuring a type-safe and efficient data layer.
-
-**Server Actions**: Core logic, including pitch creation and user data fetching, is handled securely on the server with Next.js Server Actions.
-
-###User Interface
-
-**Responsive Design**: A fully responsive UI built with Tailwind CSS, providing a seamless experience on both desktop and mobile devices.
-
-**UI Components**: The user interface is built with Shadcn/UI, offering a set of accessible and reusable components.
-
-##🛠️ Tech Stack
-
-###Framework & Language
+### Framework & Language
 
 **Framework**: Next.js
 **Language**: TypeScript
 
-###Backend
+### Backend
 
 **Database**: PostgreSQL
 
@@ -45,7 +30,7 @@ PitchDeck is a dynamic platform for founders and innovators to share their start
 
 **Authentication**: Auth.js
 
-###Frontend
+### Frontend
 
 **Styling**: Tailwind CSS
 
@@ -53,17 +38,17 @@ PitchDeck is a dynamic platform for founders and innovators to share their start
 
 **Image Upload**: Cloudinary
 
-##🚀 Getting Started
+## Getting Started
 
-###Prerequisites
+### Prerequisites
 
 Node.js (v18 or higher)
 npm
 A PostgreSQL database
 
-##Installation
+## Installation
 
-###Clone the repository:
+### Clone the repository:
 
 Bash
 
@@ -97,10 +82,10 @@ Bash
 npm run dev
 Open http://localhost:3000 in your browser to see the result.
 
-##🤝 Contributing
+## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to check the issues page for opportunities to contribute.
 
-##📄 License
+## 📄 License
 
 This project is licensed under the MIT License.
