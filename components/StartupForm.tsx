@@ -7,53 +7,29 @@ import { Textarea } from '@/components/ui/textarea';
 import MDEditor from '@uiw/react-md-editor';
 import { Send } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useActionState, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useFormState, useFormStatus } from 'react-dom';
+
+type FormState = {
+  success: boolean;
+  message: string;
+  shouldRedirect?: boolean;
+};
 
 const StartupForm = () => {
   const [pitch, setPitch] = useState('');
   const router = useRouter();
 
-  const handleFormSubmit = async (
-    prevState: { success: boolean; message: string },
-    formData: FormData
-  ) => {
-    try {
-      const result = await createPitch(prevState, formData, pitch);
+  const [state, formAction] = useFormState(createPitch, null);
 
-      if (result.success) {
-        console.log('Pitch created successfully!');
-        alert('Your startup pitch has been created successfully!');
-
-        router.push('/');
-
-        return {
-          success: true,
-          message: 'Pitch created successfully!',
-        };
-      } else {
-        console.error('Failed to create pitch:', result.message);
-        alert('Error: ' + result.message);
-
-        return {
-          success: false,
-          message: result.message,
-        };
-      }
-    } catch (error: any) {
-      console.error('Unexpected error occurred:', error);
-      alert('An unexpected error occurred. Please try again.');
-
-      return {
-        success: false,
-        message: 'An unexpected error occurred',
-      };
+  useEffect(() => {
+    if (state?.success) {
+      alert(state.message);
+      router.push('/');
+    } else if (state && !state.success) {
+      alert('Error: ' + state.message);
     }
-  };
-
-  const [state, formAction, isPending] = useActionState(handleFormSubmit, {
-    success: false,
-    message: '',
-  });
+  }, [state, router]);
 
   return (
     <form action={formAction} className="space-y-6 bg-white p-8 ">
@@ -131,17 +107,27 @@ const StartupForm = () => {
             disallowedElements: ['style'],
           }}
         />
+
+        <input type="hidden" name="pitch" value={pitch} />
       </div>
 
-      <Button
-        type="submit"
-        className="w-full flex items-center justify-center py-3 px-4 bg-gradient-to-r from-primary to-secondary rounded-lg font-semibold text-white transition-colors duration-200"
-        disabled={isPending}
-      >
-        {isPending ? 'Submitting...' : 'Submit Your Pitch'}
-        <Send className="size-5" />
-      </Button>
+      <SubmitButton />
     </form>
+  );
+};
+
+const SubmitButton = () => {
+  const { pending } = useFormStatus();
+
+  return (
+    <Button
+      type="submit"
+      className="w-full flex items-center justify-center py-3 px-4 bg-gradient-to-r from-primary to-secondary rounded-lg font-semibold text-white transition-colors duration-200"
+      disabled={pending}
+    >
+      {pending ? 'Submitting...' : 'Submit Your Pitch'}
+      <Send className="size-5" />
+    </Button>
   );
 };
 

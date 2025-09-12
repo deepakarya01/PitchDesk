@@ -9,7 +9,7 @@ export default async function HomePage({
 }: {
   searchParams: { query?: string };
 }) {
-  const query = (await searchParams).query || '';
+  const query = searchParams.query || '';
   const posts = await getStartups(query);
 
   return (
@@ -81,7 +81,7 @@ export default async function HomePage({
             title={query ? 'No Results Found' : 'No Startups Yet'}
             message={
               query
-                ? `We couldn't find any startups matching "${query}". Try something else.`
+                ? `We couldn&apos;t find any startups matching “${query}”. Try something else.`
                 : ''
             }
           />

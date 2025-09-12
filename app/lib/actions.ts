@@ -98,10 +98,15 @@ export async function getStartupsByUserId(userId: string) {
   }
 }
 
+export type PitchFormState = {
+  success: boolean;
+  message: string;
+  shouldRedirect?: boolean;
+};
+
 export async function createPitch(
-  prevState: any,
-  formData: FormData,
-  pitch: string
+  prevState: PitchFormState | null,
+  formData: FormData
 ) {
   const session = await auth();
 
@@ -115,9 +120,10 @@ export async function createPitch(
   const title = formData.get('title') as string;
   const description = formData.get('description') as string;
   const category = formData.get('category') as string;
+  const pitch = formData.get('pitch') as string;
   const authorId = session.user.id;
 
-  if (!title || !description || !category) {
+  if (!title || !description || !category || !pitch) {
     return { success: false, message: 'Missing required form fields.' };
   }
 
@@ -144,7 +150,7 @@ export async function createPitch(
       message: 'Pitch created successfully!',
       shouldRedirect: true,
     };
-  } catch (error) {
+  } catch (error: any) {
     console.error('Failed to create pitch:', error);
     return { success: false, message: 'Failed to create pitch.' };
   }
