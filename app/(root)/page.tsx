@@ -7,9 +7,10 @@ import { StartupCardType } from '../lib/types';
 export default async function HomePage({
   searchParams,
 }: {
-  searchParams: { query?: string };
+  searchParams: Promise<{ query?: string }>;
 }) {
-  const query = searchParams.query || '';
+  const params = await searchParams;
+  const query = params.query || '';
   const posts = await getStartups(query);
 
   return (
@@ -48,7 +49,7 @@ export default async function HomePage({
             {query ? (
               <>
                 Search results for{' '}
-                <span className="text-primary">"{query}"</span>{' '}
+                <span className="text-primary">&quot;{query}&quot;</span>{' '}
               </>
             ) : (
               'Discover Amazing Startups'

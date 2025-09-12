@@ -41,7 +41,7 @@ const UserProfile = ({
           ))
         ) : (
           <p className="text-gray-500 text-lg col-span-full text-center">
-            This user hasn't posted any pitches yet.
+            This user hasn&apos;t posted any pitches yet.
           </p>
         )}
       </div>

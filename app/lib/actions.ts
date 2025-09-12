@@ -104,6 +104,11 @@ export type PitchFormState = {
   shouldRedirect?: boolean;
 };
 
+type ImageUploadResult = {
+  secure_url: string;
+  public_id: string;
+};
+
 export async function createPitch(
   prevState: PitchFormState | null,
   formData: FormData
@@ -130,7 +135,7 @@ export async function createPitch(
   try {
     const imageUploadResult = await uploadImage(formData);
     const imageUrl = imageUploadResult
-      ? (imageUploadResult as any).secure_url
+      ? (imageUploadResult as ImageUploadResult).secure_url
       : null;
 
     await prisma.startup.create({
@@ -150,7 +155,7 @@ export async function createPitch(
       message: 'Pitch created successfully!',
       shouldRedirect: true,
     };
-  } catch (error: any) {
+  } catch (error) {
     console.error('Failed to create pitch:', error);
     return { success: false, message: 'Failed to create pitch.' };
   }

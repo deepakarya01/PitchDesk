@@ -10,12 +10,6 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 
-type FormState = {
-  success: boolean;
-  message: string;
-  shouldRedirect?: boolean;
-};
-
 const StartupForm = () => {
   const [pitch, setPitch] = useState('');
   const router = useRouter();
