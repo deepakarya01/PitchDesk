@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import MDEditor from '@uiw/react-md-editor';
 import { Send, Trash2, Upload } from 'lucide-react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { ChangeEvent, useActionState, useEffect, useState } from 'react';
 import { useFormStatus } from 'react-dom';
@@ -22,7 +23,7 @@ const StartupForm = () => {
     console.log('🔍 Form action called');
 
     console.log('📋 FormData contents:');
-    for (let [key, value] of formData.entries()) {
+    for (const [key, value] of formData.entries()) {
       if (key === 'image') {
         console.log(`${key}:`, {
           name: (value as File)?.name,
@@ -150,10 +151,12 @@ const StartupForm = () => {
             <div className="flex items-center space-x-4 p-4 bg-green-50 border-2 border-green-200 rounded-lg">
               <div className="flex-shrink-0">
                 {preview && (
-                  <img
+                  <Image
                     src={preview}
                     alt="Preview"
-                    className="w-16 h-16 object-cover rounded-lg"
+                    width={64}
+                    height={64}
+                    className="object-cover rounded-lg"
                   />
                 )}
               </div>
