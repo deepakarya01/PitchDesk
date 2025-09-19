@@ -24,8 +24,14 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
             <Image
               src={image}
               alt={title}
-              fill
+              width={400}
+              height={192}
               className="object-cover transition-transform duration-700 group-hover:scale-110"
+              style={{
+                width: 'auto',
+                height: 'auto',
+                objectFit: 'cover',
+              }}
             />
 
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -104,14 +110,18 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
               <div className="flex items-center space-x-3">
                 <div className="relative">
                   {author.image ? (
-                    <div className="relative w-8 h-8 rounded-full overflow-hidden ring-2 ring-gray-200 group-hover/author:ring-blue-300 transition-all duration-200">
-                      <Image
-                        src={author.image}
-                        alt={author.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
+                    <Image
+                      src={author.image}
+                      alt={author.name}
+                      width={32}
+                      height={32}
+                      className="rounded-full object-cover ring-2 ring-gray-200 group-hover/author:ring-blue-300 transition-all duration-200"
+                      style={{
+                        width: '32px',
+                        height: '32px',
+                        objectFit: 'cover',
+                      }}
+                    />
                   ) : (
                     <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center ring-2 ring-gray-200 group-hover/author:ring-blue-300 transition-all duration-200">
                       <User size={14} className="text-white" />

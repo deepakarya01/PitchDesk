@@ -11,14 +11,22 @@ cloudinary.config({
 });
 
 export async function uploadImage(formData: FormData) {
+  console.log('FormData entries:', Array.from(formData.entries()));
   const file = formData.get('image');
 
+  console.log('File from FormData:', file);
+  console.log('File type:', typeof file);
+  console.log('Is File instance:', file instanceof File);
+
   if (!file || typeof file === 'string') {
+    console.log('No valid file found');
     return null;
   }
 
   const arrayBuffer = await (file as File).arrayBuffer();
   const buffer = Buffer.from(arrayBuffer);
+
+  console.log('Buffer size:', buffer.length);
 
   return new Promise((resolve, reject) => {
     cloudinary.uploader
@@ -32,6 +40,7 @@ export async function uploadImage(formData: FormData) {
             console.error('Cloudinary upload error:', error);
             reject(error);
           } else {
+            console.log('Cloudinary upload success:', result?.secure_url);
             resolve(result);
           }
         }
@@ -133,10 +142,33 @@ export async function createPitch(
   }
 
   try {
-    const imageUploadResult = await uploadImage(formData);
-    const imageUrl = imageUploadResult
-      ? (imageUploadResult as ImageUploadResult).secure_url
-      : null;
+    let imageUrl = null;
+
+    const imageFile = formData.get('image');
+    if (imageFile && imageFile instanceof File && imageFile.size > 0) {
+      console.log(
+        'Attempting to upload image:',
+        imageFile.name,
+        imageFile.size
+      );
+
+      try {
+        const imageUploadResult = await uploadImage(formData);
+        imageUrl = imageUploadResult
+          ? (imageUploadResult as ImageUploadResult).secure_url
+          : null;
+
+        console.log('Final image URL:', imageUrl);
+      } catch (uploadError) {
+        console.error('Image upload failed:', uploadError);
+        return {
+          success: false,
+          message: 'Failed to upload image. Please try again.',
+        };
+      }
+    } else {
+      console.log('No image file provided or file is empty');
+    }
 
     await prisma.startup.create({
       data: {

@@ -17,9 +17,10 @@ const UserProfile = ({
             {user.image && (
               <Image
                 src={user.image}
-                alt={user.name}
-                layout="fill"
-                objectFit="cover"
+                alt="User Avatar"
+                width={200}
+                height={200}
+                className="object-cover"
               />
             )}
           </div>

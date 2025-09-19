@@ -42,9 +42,10 @@ const StartupDetails = ({
                   {startup.author.image ? (
                     <Image
                       src={startup.author.image}
-                      alt={startup.author.name}
-                      fill
-                      className="object-cover"
+                      alt="User Avatar"
+                      width={64}
+                      height={64}
+                      className="w-16 h-16 rounded-full object-cover"
                     />
                   ) : (
                     <div className="w-full h-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
@@ -81,7 +82,8 @@ const StartupDetails = ({
                 <Image
                   src={startup.image}
                   alt={startup.title}
-                  fill
+                  width={64}
+                  height={64}
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
